@@ -20,7 +20,7 @@ export const fetchPokemonAsync = id => {
     dispatch(fetchPokemonStart());
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then(res => dispatch(fetchPokemonSuccess(res.data.id)))
+      .then(res => dispatch(fetchPokemonSuccess(res.data.results)))
       .catch(error => dispatch(fetchPokemonFailure(error)));
   };
 };
