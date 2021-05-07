@@ -1,33 +1,13 @@
-import { PokemonActionTypes } from '../actions/actionTypes';
-
+const GET_POKEMON = 'GET_POKEMON';
 const initialState = {
   pokemon: [],
-  isFetching: false,
-  errorMessage: undefined,
 };
 
 const pokemonReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case PokemonActionTypes.FETCH_POKEMON_START:
-      return {
-        ...state,
-        isFetching: true,
-      };
-    case PokemonActionTypes.FETCH_POKEMON_SUCCESS:
-      return {
-        ...state,
-        pokemon: action.pokemon,
-        isFetching: false,
-      };
-    case PokemonActionTypes.FETCH_POKEMON_FAILURE:
-      return {
-        ...state,
-        errorMessage: action.error,
-        isFetching: false,
-      };
-    default:
-      return state;
+  if (action.type === GET_POKEMON) {
+    return action.pokemon;
   }
+  return state;
 };
 
 export default pokemonReducer;
