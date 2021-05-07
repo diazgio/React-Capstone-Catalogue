@@ -8,7 +8,7 @@ const NavBar = () => {
       <h1>Pokedex 2021</h1>
       <ul>
         <li>
-          <Link to="/">Home |</Link>
+          <Link className="link" to="/">Home</Link>
         </li>
       </ul>
     </div>

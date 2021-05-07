@@ -8,4 +8,30 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  background: rgba(79, 2, 114, 0.945);
+  z-index: 2;
+  h1 {
+    background: transparent;
+  }
+  ul {
+    background: transparent;
+    li {
+      list-style: none;
+      .link {
+        text-decoration: none;
+        color: black;
+        font-size: 1.5rem;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.SearchBar {
+  height: 3rem;
+  background: rgba(101, 3, 126, 0.945);
+}
+
+.pokecontainer {
+  display: grid;
 }
