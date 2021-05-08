@@ -3,7 +3,7 @@
 }
 
 .App {
-  background: #87ceeb;
+  background: #b3e2c8;
   height: fit-content;
   margin: 0;
 }
@@ -13,9 +13,11 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: rgba(79, 2, 114, 0.945);
+  background: #122652;
+  position: static;
   z-index: 2;
   h1 {
+    color: whitesmoke;
     background: transparent;
   }
   ul {
@@ -23,10 +25,12 @@
     li {
       list-style: none;
       .link {
+        color: whitesmoke;
         text-decoration: none;
-        color: black;
         font-size: 1.5rem;
         background-color: transparent;
+        margin-right: 1rem;
+        font-weight: bold;
       }
     }
   }
@@ -34,7 +38,13 @@
 
 .SearchBar {
   height: 3rem;
-  background: rgba(101, 3, 126, 0.945);
+  background: #DE412D;
+  .input-search {
+    label {
+      color: white;
+      font-weight: bold;
+    }
+  }
 }
 
 .pokecontainer {
@@ -45,7 +55,8 @@
   justify-content: center;
   justify-items: center;
   width: 75%;
-  margin: 2rem auto;
+  margin: 2rem auto 0 auto;
+  padding-bottom: 2rem;
   .pokecard {
     height: fit-content;
     background: whitesmoke;
@@ -58,12 +69,25 @@
       .info-link {
         text-decoration: none;
         padding: 5px 10px;
-        background: rgb(219, 34, 34);
+        background: #DE412D;
         color: white;
         font-weight: bold;
         margin-bottom: 1rem;
         border-radius: 4px;
       }
+    }
+  }
+}
+
+.container-detail {
+  height: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .pokecontainer {
+    grid-template-columns: 14rem;
+    .pokecard {
+      width: 100%;
     }
   }
 }

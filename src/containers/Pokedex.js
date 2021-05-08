@@ -39,27 +39,30 @@ const Pokedex = () => {
       <div className="SearchBar">
         <SearchIcon />
         <TextField
+          className="input-search"
           label="Pokemon"
           onChange={handleSearchChange}
         />
       </div>
-      {pokemon ? pokemon.map(p => (
-        p.name.includes(filter) && (
-          <div className="pokecard" key={p.name}>
-            <Card className="poke-data">
-              <CardMedia
-                className={classes.cardMedia}
-                image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
-                style={{ width: '130px', height: '130px' }}
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography>{p.name}</Typography>
-              </CardContent>
-              <Link className="info-link" to={`${p.id}`}>Info</Link>
-            </Card>
-          </div>
-        )
-      )) : <p>Hi</p>}
+      <div className="pokecontainer">
+        {pokemon ? pokemon.map(p => (
+          p.name.includes(filter) && (
+            <div className="pokecard" key={p.name}>
+              <Card className="poke-data">
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
+                  style={{ width: '130px', height: '130px' }}
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography>{p.name}</Typography>
+                </CardContent>
+                <Link className="info-link" to={`${p.id}`}>Info</Link>
+              </Card>
+            </div>
+          )
+        )) : <p>Hi</p>}
+      </div>
     </div>
   );
 };

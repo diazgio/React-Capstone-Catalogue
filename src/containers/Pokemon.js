@@ -24,8 +24,7 @@ const Pokemon = props => {
   }, []);
 
   return (
-    <div>
-      {console.log(detail)}
+    <div className="container-detail">
       {!loading ? (
         <div>
           <Typography variant="h1">

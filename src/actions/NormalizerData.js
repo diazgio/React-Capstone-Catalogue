@@ -5,4 +5,15 @@ const NormalizerData = apiData => {
   return response;
 };
 
-export default NormalizerData;
+const NormalizerPokemons = (apidata, name) => {
+  const { pokemon } = apidata;
+  const newPoke = NormalizerData(pokemon.map(p => p.pokemon));
+  return ({
+    [name]: {
+      ...apidata,
+      pokemon: newPoke,
+    },
+  });
+};
+
+export { NormalizerData, NormalizerPokemons };

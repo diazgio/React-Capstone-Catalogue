@@ -3,7 +3,7 @@ import axios from 'axios';
 import {
   fetchPokemonSuccess, fetchDetailsSuccess, fetchCategoriesSuccess, fetchPokemonByCategorySuccess,
 } from './actionTypes';
-import NormalizerData from './NormalizerData';
+import { NormalizerData, NormalizerPokemons } from './NormalizerData';
 
 const fetchPokemonAsync = () => {
   return dispatch => {
@@ -36,8 +36,8 @@ const fetchPokemonByCategory = (url, name) => async dispatch => {
   try {
     const apidata = await axios
       .get(url)
-      .then(resp => ({ [name]: resp.data }));
-    dispatch(fetchPokemonByCategorySuccess(apidata));
+      .then(resp => (resp.data));
+    dispatch(fetchPokemonByCategorySuccess(NormalizerPokemons(apidata, name)));
   } catch (error) {
     throw new Error(error);
   }
