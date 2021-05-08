@@ -4,16 +4,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import {
   Card, CardMedia, CardContent, CircularProgress, Typography, TextField,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import Pagination from '../components/Pagination';
-import toFirstCharUppercase from '../constant/constant';
+import { fetchPokemonAsync } from '../actions/getData';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   cardMedia: {
     margin: 'auto',
   },
@@ -24,10 +22,8 @@ const useStyles = makeStyles(theme => ({
 
 const Pokedex = () => {
   const classes = useStyles();
-  const [pokemonData, setPokemonData] = useState({});
-  const [currentUrl, setCurrentUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=151');
-  const [nextUrl, setNextUrl] = useState('https://pokeapi.co/api/v2/pokemon/?offset=24&limit=24');
-  const [prevUrl, setPrevUrl] = useState(null);
+  const pokemon = useSelector(state => state.pokemon);
+  const dispatch = useDispatch();
   const [filter, setFilter] = useState('');
 
   const handleSearchChange = e => {
@@ -35,56 +31,8 @@ const Pokedex = () => {
   };
 
   useEffect(() => {
-    let cancel;
-    axios
-      .get(currentUrl, {
-        cancelToken: new axios.CancelToken(c => cancel = c),
-      })
-      .then(response => {
-        const { data } = response;
-        const { results } = data;
-        const newPokemonData = {};
-        results.forEach((pokemon, index) => {
-          newPokemonData[index + 1] = {
-            id: index + 1,
-            name: pokemon.name,
-            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
-          };
-        });
-        setPokemonData(newPokemonData);
-        setNextUrl(response.data.next);
-        setPrevUrl(response.data.previous);
-      });
-    return () => cancel();
-  }, [currentUrl]);
-
-  const goToNextPage = () => {
-    setCurrentUrl(nextUrl);
-  };
-
-  const goToPrevPage = () => {
-    setCurrentUrl(prevUrl);
-  };
-
-  const PokemonCard = pokemonId => {
-    const { id, name, sprite } = pokemonData[pokemonId];
-
-    return (
-      <div className="pokecard" key={pokemonId}>
-        <Card className="poke-data">
-          <CardMedia
-            className={classes.cardMedia}
-            image={sprite}
-            style={{ width: '130px', height: '130px' }}
-          />
-          <CardContent className={classes.cardContent}>
-            <Typography>{`${id}. ${toFirstCharUppercase(name)}`}</Typography>
-          </CardContent>
-          <Link className="info-link" to={`/${pokemonId}`}>Info</Link>
-        </Card>
-      </div>
-    );
-  };
+    dispatch(fetchPokemonAsync());
+  }, []);
 
   return (
     <div>
@@ -95,17 +43,23 @@ const Pokedex = () => {
           onChange={handleSearchChange}
         />
       </div>
-      {pokemonData ? (
-        <div className="pokecontainer">
-          {Object.keys(pokemonData).map(pokemonId => pokemonData[pokemonId].name.includes(filter) && PokemonCard(pokemonId))}
-        </div>
-      ) : (
-        <CircularProgress />
-      )}
-      <Pagination
-        goToNextPage={goToNextPage}
-        goToPrevPage={goToPrevPage}
-      />
+      {pokemon ? pokemon.map(p => (
+        p.name.includes(filter) && (
+          <div className="pokecard" key={p.name}>
+            <Card className="poke-data">
+              <CardMedia
+                className={classes.cardMedia}
+                image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
+                style={{ width: '130px', height: '130px' }}
+              />
+              <CardContent className={classes.cardContent}>
+                <Typography>{p.name}</Typography>
+              </CardContent>
+              <Link className="info-link" to={`${p.id}`}>Info</Link>
+            </Card>
+          </div>
+        )
+      )) : <p>Hi</p>}
     </div>
   );
 };

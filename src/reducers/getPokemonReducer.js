@@ -1,7 +1,5 @@
 const GET_POKEMON = 'GET_POKEMON';
-const initialState = {
-  pokemon: [],
-};
+const initialState = [];
 
 const pokemonReducer = (state = initialState, action) => {
   if (action.type === GET_POKEMON) {

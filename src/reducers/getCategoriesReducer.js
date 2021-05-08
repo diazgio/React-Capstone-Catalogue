@@ -1,33 +1,38 @@
-// import { CategoriesActionTypes } from '../actions/actionTypes';
+const GET_CATEGORIES = 'GET_CATEGORIES';
+const GET_TYPE = 'GET_TYPE';
+const SET_CURRENT_FILTER = 'SET_CURRENT_FILTER';
+const initialState = {
+  categories: [],
+  loading: true,
+  fetchedCategories: {},
+  currentFilter: 'All',
+};
 
-// const initialState = {
-//   categories: [],
-//   isFetching: false,
-//   errorMessage: undefined,
-// };
+const categoriesReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.categories,
+        loading: false,
+      };
+    case GET_TYPE:
+      return {
+        ...state,
+        fetchedCategories:
+        {
+          ...state.fetchedCategories,
+          ...action.types,
+        },
+      };
+    case SET_CURRENT_FILTER:
+      return {
+        ...state,
+        currentFilter: action.filter,
+      };
+    default:
+      return state;
+  }
+};
 
-// const categoriesReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case CategoriesActionTypes.FETCH_DATA_START:
-//       return {
-//         ...state,
-//         isFetching: true,
-//       };
-//     case CategoriesActionTypes.FETCH_DATA_SUCCESS:
-//       return {
-//         ...state,
-//         categories: action.categories,
-//         isFetching: false,
-//       };
-//     case CategoriesActionTypes.FETCH_DATA_FAILURE:
-//       return {
-//         ...state,
-//         errorMessage: action.error,
-//         isFetching: false,
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// export default categoriesReducer;
+export default categoriesReducer;
