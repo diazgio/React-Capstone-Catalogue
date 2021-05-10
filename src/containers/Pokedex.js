@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable no-return-assign */
 /* eslint-disable max-len */
@@ -63,6 +64,10 @@ const Pokedex = () => {
           label="Pokemon"
           onChange={handleSearchChange}
         />
+        <Pagination
+          nextPage={nextPage ? nextPage : null}
+          previousPage={previousPage ? previousPage : null}
+        />
       </div>
       <div className="pokecontainer">
         {pokemon ? pokemon.map(p => (
@@ -75,17 +80,15 @@ const Pokedex = () => {
                   style={{ width: '130px', height: '130px' }}
                 />
                 <CardContent className={classes.cardContent}>
-                  <Typography>{p.name}</Typography>
+                  <Typography>
+                    {p.id}. {p.name}
+                  </Typography>
                 </CardContent>
                 <Link className="info-link" to={`${p.id}`}>Info</Link>
               </Card>
             </div>
           )
         )) : <p>Hi</p>}
-        <Pagination
-          nextPage={nextPage ? nextPage : null}
-          previousPage={previousPage ? previousPage : null}
-        />
       </div>
     </div>
   );
