@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import { fetchPokemonAsync, fetchNextPagePokemon } from '../actions/getData';
 import Pagination from '../components/Pagination';
+import toFirstCharUppercase from '../constant/constant';
 
 let url = 'https://pokeapi.co/api/v2/pokemon?limit=24';
 
@@ -80,7 +81,8 @@ const Pokedex = () => {
                   <Typography>
                     {p.id}
                     .
-                    {p.name}
+                    {' '}
+                    {toFirstCharUppercase(p.name)}
                   </Typography>
                 </CardContent>
                 <Link className="info-link" to={`${p.id}`}>Info</Link>
