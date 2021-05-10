@@ -1,10 +1,11 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Card, CardMedia, CardContent, Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
   cardMedia: {
@@ -37,6 +38,10 @@ const TypeDisplayer = ({ arrayPoke }) => {
       ))}
     </div>
   );
+};
+
+TypeDisplayer.propTypes = {
+  arrayPoke: PropTypes.object.isRequired,
 };
 
 export default TypeDisplayer;

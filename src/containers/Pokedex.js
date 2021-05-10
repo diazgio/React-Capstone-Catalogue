@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable no-return-assign */
-/* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -56,17 +51,19 @@ const Pokedex = () => {
   }, [url]);
 
   return (
-    <div>
+    <div className="pokedex-container">
       <div className="SearchBar">
-        <SearchIcon />
-        <TextField
-          className="input-search"
-          label="Pokemon"
-          onChange={handleSearchChange}
-        />
+        <div className="search-cont">
+          <SearchIcon className="searchicon" />
+          <TextField
+            className="input-search"
+            label="Pokemon"
+            onChange={handleSearchChange}
+          />
+        </div>
         <Pagination
-          nextPage={nextPage ? nextPage : null}
-          previousPage={previousPage ? previousPage : null}
+          nextPage={nextPage || null}
+          previousPage={previousPage || null}
         />
       </div>
       <div className="pokecontainer">
@@ -81,7 +78,9 @@ const Pokedex = () => {
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography>
-                    {p.id}. {p.name}
+                    {p.id}
+                    .
+                    {p.name}
                   </Typography>
                 </CardContent>
                 <Link className="info-link" to={`${p.id}`}>Info</Link>

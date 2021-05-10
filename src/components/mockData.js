@@ -1,6 +1,5 @@
-/* eslint-disable quote-props */
 export default {
-  '1': {
+  1: {
     name: 'bulbasaur',
     id: 1,
     species: {
@@ -40,7 +39,7 @@ export default {
       front_shiny_female: null,
     },
   },
-  '2': {
+  2: {
     name: 'ivysaur',
     id: 2,
     species: {
@@ -80,7 +79,7 @@ export default {
       front_shiny_female: null,
     },
   },
-  '4': {
+  4: {
     name: 'charmander',
     id: 4,
     species: {
@@ -113,7 +112,7 @@ export default {
       front_shiny_female: null,
     },
   },
-  '7': {
+  7: {
     name: 'squirtle',
     id: 7,
     species: {
