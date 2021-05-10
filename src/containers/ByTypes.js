@@ -12,7 +12,6 @@ const CategoryTypes = () => {
     fetchedCategories,
     currentFilter,
   } = stateCategories;
-  console.log(stateCategories);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCategoriesStartAsync());
