@@ -3,6 +3,12 @@ const GET_CATEGORIES = 'GET_CATEGORIES';
 const GET_DETAILS = 'GET_DETAILS';
 const GET_TYPE = 'GET_TYPE';
 const SET_CURRENT_FILTER = 'SET_CURRENT_FILTER';
+const GET_URL_NEXT_PAGE = 'GET_URL_NEXT_PAGE';
+
+const fetchNexTPagePokemonSuccess = page => ({
+  type: GET_URL_NEXT_PAGE,
+  page,
+});
 
 const fetchPokemonSuccess = pokemon => ({
   type: GET_POKEMON,
@@ -30,6 +36,7 @@ const setNewFilter = filter => ({
 });
 
 export {
+  fetchNexTPagePokemonSuccess,
   fetchPokemonSuccess,
   fetchCategoriesSuccess,
   fetchDetailsSuccess,

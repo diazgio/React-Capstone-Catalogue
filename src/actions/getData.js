@@ -1,14 +1,27 @@
 /* eslint-disable arrow-body-style */
 import axios from 'axios';
 import {
-  fetchPokemonSuccess, fetchDetailsSuccess, fetchCategoriesSuccess, fetchPokemonByCategorySuccess,
+  fetchNexTPagePokemonSuccess,
+  fetchPokemonSuccess,
+  fetchDetailsSuccess,
+  fetchCategoriesSuccess,
+  fetchPokemonByCategorySuccess,
 } from './actionTypes';
 import { NormalizerData, NormalizerPokemons } from './NormalizerData';
 
-const fetchPokemonAsync = () => {
+const fetchNextPagePokemon = url => {
   return dispatch => {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=151')
+      .get(url)
+      .then(res => dispatch(fetchNexTPagePokemonSuccess(res.data)))
+      .catch(error => { throw new Error(error); });
+  };
+};
+
+const fetchPokemonAsync = url => {
+  return dispatch => {
+    axios
+      .get(url)
       .then(res => dispatch(fetchPokemonSuccess(NormalizerData(res.data.results))))
       .catch(error => { throw new Error(error); });
   };
@@ -44,5 +57,9 @@ const fetchPokemonByCategory = (url, name) => async dispatch => {
 };
 
 export {
-  fetchPokemonAsync, fetchPokemonDetails, fetchCategoriesStartAsync, fetchPokemonByCategory,
+  fetchNextPagePokemon,
+  fetchPokemonAsync,
+  fetchPokemonDetails,
+  fetchCategoriesStartAsync,
+  fetchPokemonByCategory,
 };
