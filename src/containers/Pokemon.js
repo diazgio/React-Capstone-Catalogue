@@ -10,7 +10,6 @@ const Pokemon = (props) => {
   const { match } = props;
   const pokeID = match.params.pokemonId;
   const detail = useSelector((state) => state.detail);
-  console.log(detail);
   const { pokedetail, loading } = detail;
   const dispatch = useDispatch();
   const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${pokedetail.id}.png`;
