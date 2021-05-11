@@ -61,9 +61,12 @@ const Pokemon = (props) => {
           </Link>
         </div>
       ) : (
-        <div>
+        <div className="container-detail">
           <h1>Pokemon Not Found</h1>
-          <img src=".https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc7-yFH2sIlZAkCDB8_jcV040NBr4blWq-cTC81hqyQzLW4wAfm7M8Igbp4thtcOKu944&usqp=CAU" alt="pokemonpensante" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc7-yFH2sIlZAkCDB8_jcV040NBr4blWq-cTC81hqyQzLW4wAfm7M8Igbp4thtcOKu944&usqp=CAU" alt="pokemonpensante" />
+          <Link to="/" className="backbtn">
+            back to pokedex
+          </Link>
         </div>
       )}
     </div>
