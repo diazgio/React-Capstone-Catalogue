@@ -1,5 +1,3 @@
-/* eslint-disable arrow-parens */
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -42,6 +40,7 @@ const TypeDisplayer = ({ arrayPoke }) => {
 };
 
 TypeDisplayer.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   arrayPoke: PropTypes.object.isRequired,
 };
 

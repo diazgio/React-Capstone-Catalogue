@@ -1,4 +1,3 @@
-/* eslint-disable arrow-parens */
 const GET_POKEMON = 'GET_POKEMON';
 const GET_CATEGORIES = 'GET_CATEGORIES';
 const GET_DETAILS = 'GET_DETAILS';

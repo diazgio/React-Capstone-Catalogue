@@ -1,4 +1,3 @@
-/* eslint-disable arrow-parens */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -29,7 +28,7 @@ const Pokedex = () => {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState('');
 
-  const handleSearchChange = e => {
+  const handleSearchChange = (e) => {
     setFilter(e.target.value);
   };
 

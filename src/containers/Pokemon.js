@@ -1,4 +1,3 @@
-/* eslint-disable arrow-parens */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -7,10 +6,11 @@ import PropTypes from 'prop-types';
 import { fetchPokemonDetails } from '../actions/getData';
 import toFirstCharUppercase from '../constant/constant';
 
-const Pokemon = props => {
+const Pokemon = (props) => {
   const { match } = props;
   const pokeID = match.params.pokemonId;
   const detail = useSelector((state) => state.detail);
+  console.log(detail);
   const { pokedetail, loading } = detail;
   const dispatch = useDispatch();
   const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${pokedetail.id}.png`;
@@ -21,7 +21,7 @@ const Pokemon = props => {
 
   return (
     <div className="container-detail">
-      {!loading ? (
+      {!loading && !!detail ? (
         <div className="detailCard">
           <div className="detail-title">
             <h1>

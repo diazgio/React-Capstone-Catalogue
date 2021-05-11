@@ -34,7 +34,8 @@
 <!-- ABOUT THE PROJECT -->
 ## :scroll: About The Project
 
-Pokedex First Gen it's a catalogue of pokemons where you can find all the pokemons and filter by name or fitler by type. 
+Pokedex First Gen it's a catalogue of pokemons where you can find all the pokemons and filter by name or fitler by type.
+This catalogue it's maded whit the requirments of "CATALOGUE OF DOG CLOTHES" from MICROVERSE CAPSTONE.
 
 ### 🛠 Built With
 
