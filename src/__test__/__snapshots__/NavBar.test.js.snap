@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Creates a component renders correctly 1`] = `
+<div
+  className="navbar"
+>
+  <h1>
+    Pokedex First Gen
+  </h1>
+  <ul>
+    <li>
+      <a
+        className="link"
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+      <a
+        className="link"
+        href="/types"
+        onClick={[Function]}
+      >
+        Types
+      </a>
+    </li>
+  </ul>
+</div>
+`;
