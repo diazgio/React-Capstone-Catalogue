@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 /* eslint-disable arrow-body-style */
 import axios from 'axios';
 import {
@@ -9,20 +10,20 @@ import {
 } from './actionTypes';
 import { NormalizerData, NormalizerPokemons } from './NormalizerData';
 
-const fetchNextPagePokemon = url => {
+const fetchNextPagePokemon = (url) => {
   return dispatch => {
     axios
       .get(url)
-      .then(res => dispatch(fetchNexTPagePokemonSuccess(res.data)))
+      .then((res) => dispatch(fetchNexTPagePokemonSuccess(res.data)))
       .catch(error => { throw new Error(error); });
   };
 };
 
-const fetchPokemonAsync = url => {
+const fetchPokemonAsync = (url) => {
   return dispatch => {
     axios
       .get(url)
-      .then(res => dispatch(fetchPokemonSuccess(NormalizerData(res.data.results))))
+      .then((res) => dispatch(fetchPokemonSuccess(NormalizerData(res.data.results))))
       .catch(error => { throw new Error(error); });
   };
 };
@@ -31,7 +32,7 @@ const fetchPokemonDetails = id => {
   return dispatch => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-      .then(resp => dispatch(fetchDetailsSuccess(resp.data)))
+      .then((resp) => dispatch(fetchDetailsSuccess(resp.data)))
       .catch(error => { throw new Error(error); });
   };
 };
@@ -40,7 +41,7 @@ const fetchCategoriesStartAsync = () => {
   return dispatch => {
     axios
       .get('https://pokeapi.co/api/v2/type/')
-      .then(res => dispatch(fetchCategoriesSuccess(res.data.results)))
+      .then((res) => dispatch(fetchCategoriesSuccess(res.data.results)))
       .catch(error => { throw new Error(error); });
   };
 };
@@ -49,7 +50,7 @@ const fetchPokemonByCategory = (url, name) => async dispatch => {
   try {
     const apidata = await axios
       .get(url)
-      .then(resp => (resp.data));
+      .then((resp) => (resp.data));
     dispatch(fetchPokemonByCategorySuccess(NormalizerPokemons(apidata, name)));
   } catch (error) {
     throw new Error(error);

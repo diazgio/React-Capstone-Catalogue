@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCategoriesStartAsync, fetchPokemonByCategory } from '../actions/getData';
@@ -5,7 +6,7 @@ import { setNewFilter } from '../actions/actionTypes';
 import TypeDisplayer from '../components/TypeDisplayer';
 
 const CategoryTypes = () => {
-  const stateCategories = useSelector(state => state.categories);
+  const stateCategories = useSelector((state) => state.categories);
   const {
     categories,
     loading,
@@ -17,7 +18,7 @@ const CategoryTypes = () => {
     dispatch(fetchCategoriesStartAsync());
   }, []);
 
-  const handleFilterChange = async event => {
+  const handleFilterChange = async (event) => {
     const url = event.target[event.target.selectedIndex].getAttribute('data-url');
     const categoryName = event.target.value;
     if (!Object.keys(fetchedCategories).includes(categoryName) && categoryName !== 'All') {
@@ -31,7 +32,7 @@ const CategoryTypes = () => {
         <div className="typeContainer">
           <select onChange={handleFilterChange} className="filter-select">
             <option value="All">Types</option>
-            {categories.map(category => (
+            {categories.map((category) => (
               <option key={category.name} data-url={category.url}>{category.name}</option>
             ))}
           </select>

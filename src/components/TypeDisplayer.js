@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -21,7 +22,7 @@ const TypeDisplayer = ({ arrayPoke }) => {
   const { pokemon } = arrayPoke;
   return (
     <div className="pokecontainer">
-      {pokemon.map(p => (
+      {pokemon.map((p) => (
         <div className="pokecard" key={p.name}>
           <Card className="poke-data">
             <CardMedia

@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,8 +24,8 @@ const useStyles = makeStyles(() => ({
 
 const Pokedex = () => {
   const classes = useStyles();
-  const page = useSelector(state => state.page);
-  const pokemon = useSelector(state => state.pokemon);
+  const page = useSelector((state) => state.page);
+  const pokemon = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
   const [filter, setFilter] = useState('');
 
@@ -68,7 +69,7 @@ const Pokedex = () => {
         />
       </div>
       <div className="pokecontainer">
-        {pokemon ? pokemon.map(p => (
+        {pokemon ? pokemon.map((p) => (
           p.name.includes(filter) && (
             <div className="pokecard" key={p.name}>
               <Card className="poke-data">
