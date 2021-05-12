@@ -383,6 +383,18 @@
         width: 100%;
       }
     }
+
+    .typeContainer {
+      .pokeDefaultContainer {
+        .Pokedefault {
+          padding: 12rem 0;
+
+          img {
+            width: 12rem;
+          }
+        }
+      }
+    }
   }
 
   .container-detail {
@@ -425,6 +437,18 @@
 
       .pokecard {
         width: 100%;
+      }
+    }
+
+    .typeContainer {
+      .pokeDefaultContainer {
+        .Pokedefault {
+          padding: 9rem 0;
+
+          img {
+            width: 12rem;
+          }
+        }
       }
     }
   }

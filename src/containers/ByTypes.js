@@ -49,6 +49,7 @@ const CategoryTypes = () => {
       ) : (
         <h1>Pokemon Not Found</h1>
       )}
+      <a href="#top" className="topbtn">&#8593;</a>
     </div>
   );
 };
