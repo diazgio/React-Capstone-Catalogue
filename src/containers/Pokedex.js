@@ -52,7 +52,7 @@ const Pokedex = () => {
   }, [url]);
 
   return (
-    <div className="pokedex-container">
+    <div className="pokedex-container" id="top">
       <div className="SearchBar">
         <div className="search-cont">
           <SearchIcon className="searchicon" />
@@ -91,6 +91,7 @@ const Pokedex = () => {
           )
         )) : <p>Hi</p>}
       </div>
+      <a href="#top" className="topbtn">&#8593;</a>
     </div>
   );
 };
