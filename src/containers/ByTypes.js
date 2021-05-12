@@ -28,7 +28,7 @@ const CategoryTypes = () => {
   return (
     <div className="pokedex-container">
       {!loading ? (
-        <div className="typeContainer">
+        <div className="typeContainer" id="toptypes">
           <select onChange={handleFilterChange} className="filter-select">
             <option value="All">Types</option>
             {categories.map((category) => (
@@ -49,6 +49,7 @@ const CategoryTypes = () => {
       ) : (
         <h1>Pokemon Not Found</h1>
       )}
+      <a href="#toptypes" className="topbtn">&#8593;</a>
     </div>
   );
 };

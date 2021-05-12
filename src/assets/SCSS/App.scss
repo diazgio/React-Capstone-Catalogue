@@ -61,7 +61,8 @@
       border-radius: 8px;
 
       .searchicon {
-        margin-top: 0.8rem;
+        color: whitesmoke;
+        margin: 0.8rem 5px;
       }
 
       .input-search {
@@ -171,6 +172,32 @@
         }
       }
     }
+  }
+
+  .topbtn {
+    position: fixed;
+    z-index: 8;
+    bottom: 0;
+    right: 0;
+    box-shadow: inset 0 1px 0 0 #23395e;
+    background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+    background-color: #2e466e;
+    border: 1px solid #1f2f47;
+    padding: 5px 12px;
+    color: whitesmoke;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    text-shadow: 0 1px 0 #263666;
+    margin: 5px;
+  }
+
+  .topbtn:hover {
+    background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+    background-color: #415989;
   }
 }
 
@@ -356,6 +383,18 @@
         width: 100%;
       }
     }
+
+    .typeContainer {
+      .pokeDefaultContainer {
+        .Pokedefault {
+          padding: 12rem 0;
+
+          img {
+            width: 12rem;
+          }
+        }
+      }
+    }
   }
 
   .container-detail {
@@ -382,9 +421,10 @@
     .SearchBar {
       width: 100%;
       justify-content: center;
+      flex-direction: column;
 
       .search-cont {
-        display: none;
+        margin-bottom: 0.5rem;
       }
 
       .Pagination-container {
@@ -397,6 +437,18 @@
 
       .pokecard {
         width: 100%;
+      }
+    }
+
+    .typeContainer {
+      .pokeDefaultContainer {
+        .Pokedefault {
+          padding: 9rem 0;
+
+          img {
+            width: 12rem;
+          }
+        }
       }
     }
   }
